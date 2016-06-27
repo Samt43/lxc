@@ -234,9 +234,9 @@ pkglibexec_PROGRAMS = \
 	lxc-monitord \
 	lxc-user-nic
 
-AM_LDFLAGS = -Wl,-E
+AM_LDFLAGS = -Wl,-pie,-E
 if ENABLE_RPATH
-AM_LDFLAGS += -Wl,-rpath -Wl,$(libdir)
+AM_LDFLAGS += -Wl,-pie,-rpath -Wl,$(libdir)
 endif
 LDADD=liblxc.so @CAP_LIBS@ @APPARMOR_LIBS@ @SELINUX_LIBS@ @SECCOMP_LIBS@
 
